@@ -1,7 +1,7 @@
 {
-  "name": "Join In \u56db\u5e74\u7ea7\u5355\u8bcd\u6d88\u6d88\u4e50",
-  "short_name": "\u5355\u8bcd\u6d88\u6d88\u4e50",
-  "description": "\u5916\u7814\u7248 Join In \u56db\u5e74\u7ea7\u4e0a\u518c\u82f1\u8bed\u5355\u8bcd\u95ef\u5173\u6e38\u620f",
+  "name": "Join In 四年级单词消消乐",
+  "short_name": "单词消消乐",
+  "description": "外研版 Join In 四年级上册英语单词闯关游戏",
   "id": "./",
   "start_url": "./",
   "scope": "./",
