@@ -1,0 +1,14 @@
+{
+  "name": "Join In ���꼶����������",
+  "short_name": "����������",
+  "description": "���а� Join In ���꼶�ϲ�Ӣ�ﵥ��������",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#e9f0dd",
+  "theme_color": "#e9f0dd",
+  "icons": [{"src":"app-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
+
