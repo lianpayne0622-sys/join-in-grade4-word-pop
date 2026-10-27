@@ -15,7 +15,17 @@ const META={
 "shape":["🔷","形状"],"chocolate":["🍫","巧克力"],"triangle":["🔺","三角形"],"circle":["⭕","圆形"],"rectangle":["▭","长方形"],"square":["🟩","正方形"],"into":["➡️","进入"],"tummy":["🤰","肚子"],"yummy":["😋","美味的"],
 "zoo":["🦁","动物园"],"sky":["☁️","天空"],"neck":["🦒","脖子"],"strong":["💪","强壮的"],"brave":["🦸","勇敢的"],"heavy":["🏋️","重的"],"giraffe":["🦒","长颈鹿"],"lion":["🦁","狮子"],"elephant":["🐘","大象"],
 "city":["🏙️","城市"],"party":["🎉","聚会"],"gift":["🎁","礼物"],"address":["📍","地址"],"snow":["❄️","雪"],"knock":["🚪","敲门"],"wolf":["🐺","狼"],"paw":["🐾","爪子"],"hunter":["🏹","猎人"]
-};function meta(word){return META[word]||["📘","课本词汇"]}
+};
+Object.assign(META,{
+"wind":["🌬️","风"],"ride":["🚲","骑；骑自行车"],"report":["📝","报告；汇报"],"wheelchair":["♿","轮椅"],"far":["🛣️","远"],"from":["📍","来自"],
+"hospital":["🏥","医院"],"police":["👮","警察"],"police station":["🚓","警察局；派出所"],"shop":["🏪","商店"],"first":["1️⃣","首先"],"left":["⬅️","向左"],"then":["➡️","然后"],"straight":["⬆️","笔直地"],"turn":["↪️","转弯"],"there":["📌","在那里"],"surprise":["🎁","意想不到的事"],"restaurant":["🍽️","饭店；餐馆"],"excuse me":["🙋","劳驾"],"way":["🛣️","路；道路"],"us":["👥","我们"],"thanks":["🙏","谢谢"],"buy":["🛍️","购买"],"our":["🏠","我们的"],"writer":["✍️","作家；作者"],"often":["🔁","经常"],"between":["↔️","在……之间"],"street":["🛣️","街道"],"live":["🏠","居住"],"place":["📍","地方；场所"],"near":["📌","靠近"],"map":["🗺️","地图"],
+"nurse":["👩‍⚕️","护士"],"teach":["🧑‍🏫","教授；讲授"],"sick":["🤒","生病的"],"gardener":["🧑‍🌾","园丁"],"garden":["🌷","花园"],"tall":["📏","高的"],"cleaner":["🧹","清洁工"],"fire":["🔥","火；火灾"],"animal":["🐾","动物"],"grow":["🌱","种植"],"taxi":["🚕","出租车"],"drive":["🚗","驾车送人"],"around":["🔄","到处；四处"],"farmer":["🧑‍🌾","农民"],"science":["🔬","科学"],"ask":["❓","问；提问"],"question":["❔","问题；疑问"],"scientist":["🧑‍🔬","科学家"],"because":["💡","因为"],"panda":["🐼","大熊猫"],"keeper":["🧑‍🌾","饲养员"],"house":["🏠","房屋；房子"],"dream job":["💭","梦想中的工作"],
+"thirteen":["1️⃣3️⃣","十三"],"seventy":["7️⃣0️⃣","七十"],"eleven":["1️⃣1️⃣","十一"],"thirty":["3️⃣0️⃣","三十"],"eighteen":["1️⃣8️⃣","十八"],"eighty":["8️⃣0️⃣","八十"],"nineteen":["1️⃣9️⃣","十九"],"sixteen":["1️⃣6️⃣","十六"],"sixty-six":["6️⃣6️⃣","六十六"],"twenty":["2️⃣0️⃣","二十"],"twelve":["1️⃣2️⃣","十二"],"hundred":["💯","一百"],"forty-three":["4️⃣3️⃣","四十三"],"market":["🏪","市场；集市"],"flea market":["🛒","跳蚤市场"],"skateboard":["🛹","滑板"],"noon":["☀️","正午；中午"],"money":["💰","钱"],"by the way":["💬","顺便说一下"],"skateboarding":["🛹","滑板运动"],"friend":["🧑‍🤝‍🧑","朋友"],"flower":["🌸","花；花朵"],"toy":["🧸","玩具"],"pair":["👟","一双；一对"],"give":["🎁","赠送；给予"],"spend":["💸","花销；花费"],"box":["📦","盒；箱"],"use":["🛠️","使用"],"save":["🐷","储蓄；存钱"],"holiday":["🏖️","假期"],"share":["🤝","共享"],"should":["✅","应当；应该"],
+"wheel":["🛞","车轮"],"another":["➕","另一个；又一个"],"a lot":["🔢","许多；大量"],"its":["🐾","它的"],"line":["➖","线；线条"],
+"pig":["🐷","猪"],"horse":["🐴","马"],"sheep":["🐑","羊；绵羊"],"cow":["🐄","牛；奶牛"],"climb":["🧗","攀登；爬"],"slow":["🐢","慢的；缓慢的"],"perfect":["💯","完美的"],"pet":["🐶","宠物"],"boy":["👦","男孩；少年"],"girl":["👧","女孩；小姑娘"],"hamster":["🐹","仓鼠"],"cute":["🥰","可爱的"],"parrot":["🦜","鹦鹉"],"talk":["🗣️","说话"],"shelter":["🏠","庇护所；避难所"],"animal shelter":["🐾","动物收容所"],"catch":["🤲","接住；接"],"grass":["🌿","草；青草"],"farm":["🚜","农场；养殖场"],"tail":["🐕","尾巴"],
+"bag":["👜","袋；包"],"life":["🌱","生命"],"story":["📖","故事"],"tie":["🪢","把……系起来"],"never":["🚫","决不；永不"],"trust":["🤝","信任；相信"],"bad":["👎","坏的；不好的"],"guy":["🧑","家伙"]
+});
+function meta(word){return META[word]||["📘","课本词汇"]}
 const $=id=>document.getElementById(id),board=$("board");
 let level="unit1",rows=5,cols=5,grid=[],score=0,moves=20,removed=0,goal=25,round=1,best=0,bouquets=0,lastWord="",sound=true,locked=false,dragging=false,chain=[],touchMode=false,startX=0,startY=0;
 function makeCell(){return((round-1)*5+Math.floor(Math.random()*5))%WORDS[level].length}
