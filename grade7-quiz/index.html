@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff8e8" />
+  <title>���꼶ȫ�ƴ�����</title>
+  <meta name="description" content="���ġ���ѧ��Ӣ���ʷ�������뷨�����ѡ���ⴳ��С��Ϸ" />
+  <style>
+    :root{--ink:#213547;--muted:#718096;--paper:#fffdf6;--orange:#ff7a3d;--yellow:#ffd95a;--green:#49b88a;--blue:#5b8def;--red:#f06464;--shadow:0 14px 35px rgba(44,52,72,.12)}
+    *{box-sizing:border-box} body{margin:0;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#fff8e8;min-height:100vh;overflow-x:hidden}
+    body:before,body:after{content:"";position:fixed;border-radius:50%;z-index:-1;filter:blur(2px)} body:before{width:260px;height:260px;background:#ffe39b;right:-100px;top:-70px} body:after{width:220px;height:220px;background:#cdebdc;left:-100px;bottom:-70px}
+    button{font:inherit}.app{max-width:720px;margin:auto;padding:20px 16px calc(26px + env(safe-area-inset-bottom))}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{font-weight:900;font-size:20px}.sound{border:0;background:#fff;border-radius:16px;padding:10px 13px;box-shadow:0 5px 14px #00000010;cursor:pointer}
+    .card{background:rgba(255,255,255,.92);border:2px solid #fff;border-radius:28px;box-shadow:var(--shadow);padding:24px;backdrop-filter:blur(8px)}
+    .hero{position:relative;overflow:hidden}.hero:after{content:"?";position:absolute;right:20px;top:12px;color:#ffd258;font-size:46px;transform:rotate(14deg)}
+    .eyebrow{display:inline-block;background:#fff0d0;color:#9b5b00;border-radius:99px;padding:7px 12px;font-size:13px;font-weight:800}.hero h1{font-size:clamp(30px,8vw,48px);line-height:1.05;margin:18px 0 12px;letter-spacing:-2px}.hero h1 span{color:var(--orange)}.hero p{color:var(--muted);line-height:1.7;margin:0 0 18px}.stats{display:flex;gap:10px}.stat{flex:1;background:#f7f8fb;border-radius:16px;padding:12px;text-align:center}.stat b{display:block;font-size:20px}.stat small{color:var(--muted)}
+    h2{font-size:18px;margin:25px 4px 12px}.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.subject{border:0;text-align:left;border-radius:22px;padding:17px;color:var(--ink);cursor:pointer;min-height:112px;transition:.18s transform,.18s box-shadow;box-shadow:0 8px 20px #30384912}.subject:active{transform:scale(.97)}.subject:last-child{grid-column:1/-1}.subject .icon{font-size:28px;display:block;margin-bottom:8px}.subject b{font-size:17px}.subject small{display:block;margin-top:5px;color:#536270}.chinese{background:#ffe5da}.math{background:#dcecff}.english{background:#e4f6e9}.history{background:#fff0c4}.morality{background:#eadffc}
+    .footer-note{text-align:center;color:#8a94a3;font-size:12px;margin:24px 0}.hidden{display:none!important}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.level{border:2px solid #edf0f4;background:#fff;border-radius:20px;padding:16px;text-align:left;cursor:pointer;box-shadow:0 7px 18px #3038490d}.level b{display:block;font-size:17px}.level small{display:block;color:var(--muted);margin-top:5px}.level.done{border-color:#70cfa7;background:#f0fbf6}.level.locked{opacity:.45;cursor:not-allowed}.bouquet{font-size:54px;margin:8px 0;animation:bob 1.6s ease-in-out infinite}.flower-count{background:#fff3d6;color:#8a5b00;border-radius:99px;padding:7px 12px;font-weight:900;font-size:13px}
+    .game-head{display:flex;gap:12px;align-items:center;margin-bottom:16px}.back{border:0;background:#fff;border-radius:14px;width:44px;height:44px;cursor:pointer;box-shadow:0 5px 12px #0000000d}.progress-wrap{flex:1}.progress-meta{display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-bottom:7px}.progress{height:10px;border-radius:99px;background:#e9edf2;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--yellow));width:10%;border-radius:99px;transition:.35s}
+    .qtag{font-size:13px;color:var(--orange);font-weight:900}.question{font-size:22px;line-height:1.55;margin:12px 0 20px}.options{display:grid;gap:11px}.option{display:flex;align-items:center;gap:12px;width:100%;border:2px solid #edf0f4;background:#fff;border-radius:18px;padding:14px;text-align:left;color:var(--ink);cursor:pointer;transition:.18s}.option:hover{border-color:#ffd0b5}.option:disabled{cursor:default}.letter{display:grid;place-items:center;min-width:34px;height:34px;border-radius:12px;background:#f2f4f7;font-weight:900}.option.correct{border-color:var(--green);background:#edf9f3}.option.correct .letter{background:var(--green);color:#fff}.option.wrong{border-color:var(--red);background:#fff0f0}.option.wrong .letter{background:var(--red);color:#fff}
+    .explain{margin-top:16px;padding:14px;background:#f7f8fa;border-radius:16px;line-height:1.55;font-size:14px}.explain b{color:var(--green)}.next{width:100%;margin-top:16px;border:0;border-radius:18px;background:var(--ink);color:#fff;padding:15px;font-weight:900;font-size:16px;cursor:pointer}
+    .result{text-align:center}.trophy{font-size:68px;animation:bob 1.6s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-8px)}}.result h1{margin:5px 0}.score-ring{width:148px;height:148px;border-radius:50%;margin:20px auto;display:grid;place-items:center;background:conic-gradient(var(--orange) var(--pct),#edf0f4 0);position:relative}.score-ring:after{content:"";position:absolute;inset:12px;border-radius:50%;background:#fff}.score-ring div{z-index:1}.score-ring b{display:block;font-size:34px}.stars{font-size:30px;letter-spacing:5px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}.actions button{border:0;border-radius:17px;padding:14px;font-weight:900;cursor:pointer}.again{background:var(--orange);color:#fff}.home{background:#eef1f5;color:var(--ink)}
+    .toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,20px);background:#213547;color:#fff;padding:11px 18px;border-radius:99px;font-size:13px;opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(min-width:600px){.subjects{grid-template-columns:repeat(3,1fr)}.subject:last-child{grid-column:auto}.card{padding:30px}.app{padding-top:32px}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header class="topbar"><div class="brand">?? ���꼶ȫ�ƴ�����</div><button class="sound" id="soundBtn" aria-label="������Ч">??</button></header>
+  <section id="homeScreen">
+    <div class="card hero"><span class="eyebrow">�°��˽̰� �� ͬ������</span><h1>���죬������ս<br><span>��һ�ƣ�</span></h1><p>ÿ����� 10 �⣬���𼴽�����������ԣ����ȫ�����ǣ�</p><div class="stats"><div class="stat"><b id="bestScore">0</b><small>��ʷ��߷�</small></div><div class="stat"><b>5</b><small>ѧ�����</small></div><div class="stat"><b id="played">0</b><small>�Ѵ��ش���</small></div></div></div>
+    <h2>ѡ����ս��Ŀ</h2>
+    <div class="subjects">
+      <button class="subject chinese" data-subject="����"><span class="icon">??</span><b>���� �� 100��</b><small>�ִ� �� ��ʫ�� �� �Ķ�</small></button>
+      <button class="subject math" data-subject="��ѧ"><span class="icon">??</span><b>��ѧ �� 100��</b><small>������ �� ��ʽ �� ����</small></button>
+      <button class="subject english" data-subject="Ӣ��"><span class="icon">??</span><b>Ӣ�� �� 100��</b><small>�ʻ� �� �﷨ �� �龰����</small></button>
+      <button class="subject history" data-subject="��ʷ"><span class="icon">??</span><b>��ʷ �� 100��</b><small>�й��Ŵ�ʷ����</small></button>
+      <button class="subject morality" data-subject="�����뷨��"><span class="icon">??</span><b>�����뷨�� �� 100��</b><small>�ɳ� �� ���� �� ����</small></button>
+    </div><p class="footer-note">��Ŀ���ڿκ󹮹̣������������ѧУ�̲�Ϊ׼</p>
+  </section>
+  <section id="levelScreen" class="hidden"><div class="game-head"><button class="back" id="levelBack">��</button><div><b id="levelSubject"></b><div style="color:var(--muted);font-size:13px;margin-top:3px">ÿ��10�⣬ͨ�ؽ���һ����</div></div><span class="flower-count" id="flowerCount">?? 0</span></div><div class="card"><h1 style="margin-top:0">ѡ��ؿ�</h1><div class="level-grid" id="levelGrid"></div></div></section>
+  <section id="gameScreen" class="hidden"><div class="game-head"><button class="back" id="backBtn">��</button><div class="progress-wrap"><div class="progress-meta"><span id="subjectName"></span><span id="counter"></span></div><div class="progress"><i id="progressBar"></i></div></div></div><div class="card"><div class="qtag" id="qtag"></div><h1 class="question" id="question"></h1><div class="options" id="options"></div><div class="explain hidden" id="explain"></div><button class="next hidden" id="nextBtn">��һ�� ��</button></div></section>
+  <section id="resultScreen" class="hidden"><div class="card result"><div class="bouquet" id="bouquet">??</div><h1 id="resultTitle">������ɣ�</h1><p id="resultSub"></p><div class="score-ring" id="scoreRing"><div><b id="finalScore">0</b><small>��</small></div></div><div class="stars" id="stars"></div><p id="rewardText" style="font-weight:900;color:var(--green)"></p><div class="actions"><button class="again" id="againBtn">�ٴ�����</button><button class="home" id="homeBtn">�ؿ���ͼ</button></div></div></section>
+</main><div class="toast" id="toast"></div>
+<script>
+const bank={
+'����':[
+{q:'�������С��𡱵���ȷ�����ǣ�',o:['li��ng','ni��ng','r��ng','n��ng'],a:1,e:'�����𡱶��� y��n ni��ng��������׼��������'},
+{q:'���д�����д��ȫ��ȷ��һ���ǣ�',o:['��֦��չ','������ȥ','��Ȼ��ͬ','��������'],a:0,e:'��������ȥ�����������С�������ȷд����'},
+{q:'���Ҽĳ��������£����ֱ��ҹ�������������ǣ�',o:['�Ÿ�','���','����','�ܲ�'],a:1,e:'ʫ�������ס�����������Ǩ����ң�д˼ġ���'},
+{q:'���о���ʹ�ñ����޴ǵ��ǣ�',o:['�����ţ������š�','���������ص����ޡ�','ɽ���������ˡ�','̫�������������ˡ�'],a:1,e:'�ѡ����족����������ص����ޡ�����������'},
+{q:'�������Ҫ��¼��˭������ӵ����У�',o:['����','����','����','ׯ��'],a:1,e:'������Ǽ�¼���Ӽ���������е���¼��������'},
+{q:'����������ҹ������һ���ǣ�',o:['���������','����������','����һ����','������ˮǰ'],a:0,e:'�������塶�α���ɽ�¡�����������ҹ����������ꡣ'},
+{q:'���¹ʶ�֪�£�����Ϊʦ�ӡ��С��ʡ�ָʲô��',o:['ԭ��','�ɵ�֪ʶ','����','����'],a:1,e:'���¹ʡ�ָ��ϰѧ����֪ʶ��'},
+{q:'�������ھ��ǵ��ǣ�',o:['�Ҹ�','���','����','СŮ'],a:2,e:'�������ǶԶԷ����׵���ƣ�������ǫ�ǡ�'},
+{q:'�����ϵĶ��졷�������ǣ�',o:['������','����','����','³Ѹ'],a:2,e:'�����ϵĶ��졷�����ᴴ����д��ɢ�ġ�'},
+{q:'��������˹�򣬲�����ҹ���еġ�˹��ָ��',o:['ʱ��','��ˮ','����','̫��'],a:1,e:'����վ�ںӱ߸�̾�����С�˹��ָ���ŵĺ�ˮ��'},
+{q:'������������ͳ������������ﵯ�١�ʹ����ʲô�޴ǣ�',o:['����','�ű�','����','����'],a:0,e:'���ͳ��������١����������˵Ķ����������ˡ�'},
+{q:'���б��ʹ����ȷ���ǣ�',o:['��ȥ��������','�������䰡��','����Ҫ��Ǧ�ʡ���Ƥ�ͳ��ӡ�','��ʦ˵������������'],a:2,e:'���д���֮���öٺţ���ĩ�þ�ţ���������ȷ��'}],
+'��ѧ':[
+{q:'?3 ���෴���ǣ�',o:['?3','3','1/3','?1/3'],a:1,e:'ֻ�з��Ų�ͬ����������Ϊ�෴�������� ?3 ���෴���� 3��'},
+{q:'���㣺?2 + 5 =��',o:['?7','?3','3','7'],a:2,e:'���������ӣ�ȡ����ֵ�ϴ����ķ��ţ�5?2=3��'},
+{q:'����ֵ���� 4 �����м�����',o:['0��','1��','2��','4��'],a:2,e:'|4|=4��|?4|=4�������� 2 ����'},
+{q:'����ʽ ?3x2y �Ĵ����ǣ�',o:['2','3','4','?3'],a:1,e:'������������ĸָ��֮�ͣ�2+1=3��'},
+{q:'�� x+3=8���� x=��',o:['5','11','?5','?11'],a:0,e:'��ʽ����ͬʱ��ȥ 3���� x=5��'},
+{q:'���и�����ͬ������ǣ�',o:['2x��2y','3ab��?ab','x2��x','4��4x'],a:1,e:'������ĸ��ͬ������ͬ��ĸ��ָ����ͬ������ͬ���'},
+{q:'һ������ 35�㣬��������ǣ�',o:['55��','65��','145��','325��'],a:0,e:'��Ϊ��ǵ�������֮���� 90�㣬90��?35��=55�㡣'},
+{q:'��������ԭ�����Ϊ 2 �ĵ��ʾ�����ǣ�',o:['ֻ��2','ֻ��?2','2��?2','0��2'],a:2,e:'ԭ�������������Ϊ 2 �ĵ�ֱ��ʾ 2 �� ?2��'},
+{q:'���㣺23 =��',o:['5','6','8','9'],a:2,e:'23=2��2��2=8��'},
+{q:'��֪ a=2���� 3a?1 ��ֵ�ǣ�',o:['3','5','6','7'],a:1,e:'���� a=2��3��2?1=5��'},
+{q:'����������Ի�������ֱ�ߣ�',o:['0��','1��','2��','������'],a:1,e:'����ȷ��һ��ֱ�ߡ�'},
+{q:'�� 2x=10���� x=��',o:['2','5','8','20'],a:1,e:'��ʽ����ͬʱ���� 2���� x=5��'}],
+'Ӣ��':[
+{q:'�� How are you? �� ______',o:['I am fine, thanks.','Good morning.','My name is Tom.','Nice to meet you.'],a:0,e:'��How are you?��ѯ����������������I am fine, thanks.��'},
+{q:'This is ______ orange.',o:['a','an','the','/'],a:1,e:'orange ��Ԫ�����ؿ�ͷ����ʾ��һ����ʱ�� an��'},
+{q:'The plural form of ��box�� is ______.',o:['boxs','boxes','boxies','box'],a:1,e:'�� x ��β�Ŀ������ʣ�����ͨ���� -es��'},
+{q:'�� What��s this in English? �� ______ a pen.',o:['This','That','It','It��s'],a:3,e:'�ش���Ʒ���Ƴ��á�It��s + ���ʡ���'},
+{q:'My sister ______ a new schoolbag.',o:['have','has','having','is have'],a:1,e:'���� My sister �ǵ����˳Ƶ�����have ��Ϊ has��'},
+{q:'Where ______ your books?',o:['is','am','are','be'],a:2,e:'���� books �Ǹ�����be ������ are��'},
+{q:'I like English, ______ it is interesting.',o:['but','because','or','so'],a:1,e:'����˵��ϲ��Ӣ���ԭ���� because��'},
+{q:'Which word has a different vowel sound?',o:['name','cake','map','game'],a:2,e:'name��cake��game �� a �� /e?/��map �� a �� /?/��'},
+{q:'Let��s ______ basketball after school.',o:['play','plays','playing','to play'],a:0,e:'Let��s ��Ӷ���ԭ�Ρ�'},
+{q:'�� ______ is your birthday? �� It��s in May.',o:['What','When','Where','Who'],a:1,e:'ѯ��ʱ�������ʴ� When��'},
+{q:'Tom and I ______ good friends.',o:['am','is','are','be'],a:2,e:'Tom and I �Ǹ������be ������ are��'},
+{q:'The book is ______ the desk.',o:['in','on','at','for'],a:1,e:'�������ӱ��棬�ý�� on��'}],
+'��ʷ':[
+{q:'�ҹ�����Ŀǰ��ȷ�ϵ����������֮һ�ǣ�',o:['������','ɽ������','Ԫı��','��ķ����'],a:2,e:'Ԫı�˾��Լ170���꣬���ҹ�����Ŀǰ��ȷ�ϵ����������֮һ��'},
+{q:'���¾�����Ҫ��ֲ��ũ�����ǣ�',o:['ˮ��','��','С��','����'],a:1,e:'���¾��������ڻƺ�������Ҫ��ֲ�ڡ�'},
+{q:'���������й���ʷ�ϵ�һ�������ǣ�',o:['�ĳ�','�̳�','�ܳ�','�س�'],a:0,e:'Լ��Ԫǰ2070�꣬�������ĳ���'},
+{q:'Ŀǰ��֪�ҹ������ֿɿ�����ʷ���ĸ�������ʼ��',o:['�ĳ�','�̳�','����','�س�'],a:1,e:'�̳��׹����Ѿ߱����ֻ����ṹ���ҹ������ֿɿ�����ʷ���̳���ʼ��'},
+{q:'����ʱ�ڵ�һ�������ǣ�',o:['���¹�','��ׯ��','�뻸��','���Ĺ�'],a:2,e:'�뻸�����ù��ٸĸ��Ϊ����ʱ�ڵ�һ��������'},
+{q:'ս��ʱ�������ع��䷨���ǣ�',o:['����','����','��˹','����'],a:1,e:'��Ԫǰ356�꣬��Т�������������ֱ䷨��'},
+{q:'������ˮ��������˭�����޽���',o:['���','����','����','����'],a:0,e:'ս��ʱ�ڣ��ع��񿤿�����������޽������ߡ�'},
+{q:'��ͳһ������ʱ���ǣ�',o:['��Ԫǰ221��','��Ԫǰ202��','��Ԫ221��','��Ԫ202��'],a:0,e:'��Ԫǰ221�꣬�����������ͳһ��ҵ��'},
+{q:'�����Ϊ��ǿ���뼯Ȩ��������˭�ġ��ƶ������飿',o:['���','������','������','����'],a:2,e:'����۲��������Ƚ��飬�䲼���ƶ����'},
+{q:'˿��֮·��ͨ����λ�����ʹ����������أ�',o:['���','�೬','����','˾��Ǩ'],a:0,e:'������γ�ʹ����Ϊ˿��֮·�Ŀ�ͨ�춨������'},
+{q:'���������Ϊ��ҽʥ�����ǣ�',o:['��٢','���پ�','��ȵ','��ʱ��'],a:1,e:'�������پ������˺��Ӳ��ۡ������������Ϊ��ҽʥ����'},
+{q:'��ʼ��ͳһ����ȫ��ͳһʹ�õ������ǣ�',o:['�׹���','����','С׭','����'],a:2,e:'�س�ͳһ���֣���С׭��Ϊͨ�����ְ���ȫ����'}],
+'�����뷨��':[
+{q:'��ѧ��������Ǵ���һ����������ء��������㣬����Ӧ��',o:['����Լ�','������Ӧ������','ֻ��ע�ɼ�','��ȫ������ĸ'],a:1,e:'������Ӧ�仯���ύ���ѡ���չ��Ȥ���ܰ������ǿ�����ѧ�����'},
+{q:'�������Σ���Ӧֹ���Ķ�����Ҫ���',o:['����','�ȴ�','�ж�','��Թ'],a:2,e:'Ŭ��������������ʵ֮����������������θ�Ҫ�����ж���'},
+{q:'��֪֮�ߣ������֮�ߣ���֮�ߣ�������֮�ߡ���ʾ����ѧϰ��Ҫ��',o:['���ֲ�������Ȥ','ֻ������Ӳ��','��ȫ������ʦ','�ܾ�����'],a:0,e:'ѧϰ��Ȥ����ǿѧϰ������������������ѧϰ��'},
+{q:'��ȷ��ʶ�Լ������ԣ�',o:['�ٽ����ҷ�չ','��������ϲ���Լ�','����һ�д���','������Ҫ���˰���'],a:0,e:'��ȷ��ʶ�Լ�����������ǿ���ģ����õط�չ������'},
+{q:'������˵����ۣ�����Ӧ�ã�',o:['һ�Ž���','һ�žܾ�','�͹��侲����','���̷���'],a:2,e:'Ҫ�������˵�̬�������ۣ���ҲҪ�͹��侲�������Ȳ�ä��Ҳ�����ӡ�'},
+{q:'��������ʲ�������',o:['���ܵĹ�ϵ','ƽ��˫��','��������','һ�ɲ���'],a:3,e:'���겻��һ�ɲ���ģ�����Ҫѧ���������ĵ������µ����ꡣ'},
+{q:'����֮�䷢����ͻʱ����ǡ���������ǣ�',o:['�໥����','�侲��ͨ','��������','�������ع�'],a:1,e:'������ͻ��Ҫ�����侲��̹�Ͻ�����Ѱ�ұ˴˶��ܽ��ܵĽ����ʽ��'},
+{q:'���Ͻ�����Ҫ���ǣ�',o:['���ޱ���','����ѡ�񲢱�����˽','�������','ֻ˵�ٻ�'],a:1,e:'��������Ľ����в�ȷ�����أ�Ҫ�����ұ�����ʶ������ѡ��'},
+{q:'�����ʦ������������Ӧ��',o:['������ʦ����������','���ڶ�ײ','�Ӵ��ӿ�','��������'],a:0,e:'������ζ�Ź��ġ����Ѻ�Ȱ�룬������ʦ�����ڸĽ��Լ���'},
+{q:'Т�׾����ǣ�',o:['��������','ֻ����ĸ���ʰ���','�л�����Ĵ�ͳ����','����ʱ��������'],a:2,e:'Т�׾������л�����Ĵ�ͳ���£�Ҳ��ÿ���й�����ķ�������'},
+{q:'���������У�������Ը�뼯������ͻʱӦ��',o:['���ӹ���','�������ĺ�����','�����˳�����','ɿ�����˷���'],a:1,e:'ͨ��Ӧ�ø�����Ը���Ӽ��干ͬҪ�󣬲�ͨ��ǡ����ʽ����Ľ����顣'},
+{q:'�����Ǳ���ģ����Ƕ�����Ӧ���е�̬���ǣ�',o:['Į������','��η����','ֻ�䰮�Լ�������','����ð��'],a:1,e:'������ֵ����һ�У���η������Ҫ�䰮�Լ���ҲҪ�ػ����ˡ�'}]
+};
+let subject='',questions=[],index=0,score=0,sound=true,locked=false,currentLevel=1;
+const $=s=>document.querySelector(s), home=$('#homeScreen'),levels=$('#levelScreen'),game=$('#gameScreen'),result=$('#resultScreen');
+function beep(ok=true){if(!sound)return;try{const c=new (window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.frequency.value=ok?660:190;g.gain.setValueAtTime(.08,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.18);o.connect(g).connect(c.destination);o.start();o.stop(c.currentTime+.18)}catch(e){}}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function show(which){[home,levels,game,result].forEach(x=>x.classList.add('hidden'));which.classList.remove('hidden');scrollTo({top:0,behavior:'smooth'})}
+function updateStats(){bestScore.textContent=localStorage.g7best||0;played.textContent=localStorage.g7played||0} updateStats();
+document.querySelectorAll('.subject').forEach(b=>b.onclick=()=>openLevels(b.dataset.subject));
+function progress(){try{return JSON.parse(localStorage.g7progress||'{}')}catch(e){return {}}}
+function openLevels(s){subject=s;levelSubject.textContent=`${s} �� 100�ⴳ��`;const p=progress(),done=p[s]||0;flowerCount.textContent=`?? ${done}`;levelGrid.innerHTML='';for(let n=1;n<=10;n++){const b=document.createElement('button');const unlocked=n<=done+1;b.className='level '+(n<=done?'done ':'')+(unlocked?'':'locked');b.innerHTML=`<b>${n<=done?'? ':unlocked?'?? ':'?? '}�� ${n} ��</b><small>�� ${(n-1)*10+1}��${n*10} �� ${n<=done?'�� �ѻ���':''}</small>`;b.onclick=()=>unlocked&&startLevel(n);levelGrid.appendChild(b)}show(levels)}
+function make100(s){const src=bank[s],out=[];for(let i=0;i<100;i++){const base=src[i%src.length];out.push({...base,q:`${base.q}`,id:i+1})}return out}
+function startLevel(n){currentLevel=n;const all=make100(subject);questions=all.slice((n-1)*10,n*10);index=0;score=0;show(game);render()}
+function render(){locked=false;const x=questions[index];subjectName.textContent=`${subject} �� ��${currentLevel}��`;counter.textContent=`${index+1} / 10`;progressBar.style.width=`${(index+1)*10}%`;qtag.textContent=`�� ${x.id} �� �� ȫ�����`;question.textContent=x.q;explain.classList.add('hidden');nextBtn.classList.add('hidden');options.innerHTML='';x.o.forEach((t,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<span class="letter">${'ABCD'[i]}</span><span>${t}</span>`;b.onclick=()=>answer(i,b);options.appendChild(b)})}
+function answer(i,btn){if(locked)return;locked=true;const x=questions[index],all=[...options.children];all.forEach(b=>b.disabled=true);all[x.a].classList.add('correct');if(i===x.a){score+=10;beep(true);toast('�������+10 �� ??')}else{btn.classList.add('wrong');beep(false)}explain.innerHTML=`<b>${i===x.a?'�ش���ȷ��':'��ȷ�𰸣�'+ 'ABCD'[x.a]}</b><br>${x.e}`;explain.classList.remove('hidden');nextBtn.textContent=index===9?'�鿴�ɼ�':'��һ�� ��';nextBtn.classList.remove('hidden')}
+nextBtn.onclick=()=>{index++;index<10?render():finish()};
+function finish(){const playedN=Number(localStorage.g7played||0)+1;localStorage.g7played=playedN;localStorage.g7best=Math.max(score,Number(localStorage.g7best||0));const p=progress(),wasDone=(p[subject]||0)>=currentLevel,passed=score>=60;if(passed&&!wasDone&&currentLevel===(p[subject]||0)+1){p[subject]=currentLevel;localStorage.g7progress=JSON.stringify(p)}finalScore.textContent=score;scoreRing.style.setProperty('--pct',score+'%');let n=score>=90?3:score>=70?2:score>=60?1:0;stars.textContent='��'.repeat(n)+'��'.repeat(3-n);resultTitle.textContent=passed?'�� '+currentLevel+' ��ͨ�أ�':'����һ��㣡';resultSub.textContent=`${subject} �� ��� ${score/10} �⣬�� 10 ��`;bouquet.textContent=passed?'??':'??';rewardText.textContent=passed?(wasDone?'������ͨ���������Ѿ��ղ�':'��ϲ���һ������'):'���6�⼴��ͨ�ز���û���';updateStats();show(result)}
+againBtn.onclick=()=>startLevel(currentLevel);homeBtn.onclick=()=>openLevels(subject);levelBack.onclick=()=>show(home);backBtn.onclick=()=>{if(confirm('ȷ���˳������𣿵�ǰ�ɼ����ᱣ�档'))openLevels(subject)};
+soundBtn.onclick=()=>{sound=!sound;soundBtn.textContent=sound?'??':'??';toast(sound?'��Ч�ѿ���':'��Ч�ѹر�')};
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1200)}
+</script></body></html>
+
