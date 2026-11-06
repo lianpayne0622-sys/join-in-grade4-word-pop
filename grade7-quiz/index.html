@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#fff8e8" />
   <title>七年级全科闯关王</title>
-  <meta name="description" content="语文、数学、英语、历史、道德与法治五科选择题闯关小游戏" />
+  <meta name="description" content="语文、数学、英语、历史、地理、道德与法治六科选择题闯关小游戏" />
   <style>
     :root{--ink:#213547;--muted:#718096;--paper:#fffdf6;--orange:#ff7a3d;--yellow:#ffd95a;--green:#49b88a;--blue:#5b8def;--red:#f06464;--shadow:0 14px 35px rgba(44,52,72,.12)}
     *{box-sizing:border-box} body{margin:0;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#fff8e8;min-height:100vh;overflow-x:hidden}
@@ -14,7 +14,7 @@
     .card{background:rgba(255,255,255,.92);border:2px solid #fff;border-radius:28px;box-shadow:var(--shadow);padding:24px;backdrop-filter:blur(8px)}
     .hero{position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;right:20px;top:12px;color:#ffd258;font-size:46px;transform:rotate(14deg)}
     .eyebrow{display:inline-block;background:#fff0d0;color:#9b5b00;border-radius:99px;padding:7px 12px;font-size:13px;font-weight:800}.hero h1{font-size:clamp(30px,8vw,48px);line-height:1.05;margin:18px 0 12px;letter-spacing:-2px}.hero h1 span{color:var(--orange)}.hero p{color:var(--muted);line-height:1.7;margin:0 0 18px}.stats{display:flex;gap:10px}.stat{flex:1;background:#f7f8fb;border-radius:16px;padding:12px;text-align:center}.stat b{display:block;font-size:20px}.stat small{color:var(--muted)}
-    h2{font-size:18px;margin:25px 4px 12px}.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.subject{border:0;text-align:left;border-radius:22px;padding:17px;color:var(--ink);cursor:pointer;min-height:112px;transition:.18s transform,.18s box-shadow;box-shadow:0 8px 20px #30384912}.subject:active{transform:scale(.97)}.subject:last-child{grid-column:1/-1}.subject .icon{font-size:28px;display:block;margin-bottom:8px}.subject b{font-size:17px}.subject small{display:block;margin-top:5px;color:#536270}.chinese{background:#ffe5da}.math{background:#dcecff}.english{background:#e4f6e9}.history{background:#fff0c4}.morality{background:#eadffc}
+    h2{font-size:18px;margin:25px 4px 12px}.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.subject{border:0;text-align:left;border-radius:22px;padding:17px;color:var(--ink);cursor:pointer;min-height:112px;transition:.18s transform,.18s box-shadow;box-shadow:0 8px 20px #30384912}.subject:active{transform:scale(.97)}.subject:last-child{grid-column:1/-1}.subject .icon{font-size:28px;display:block;margin-bottom:8px}.subject b{font-size:17px}.subject small{display:block;margin-top:5px;color:#536270}.chinese{background:#ffe5da}.math{background:#dcecff}.english{background:#e4f6e9}.history{background:#fff0c4}.geography{background:#dff4f1}.morality{background:#eadffc}
     .footer-note{text-align:center;color:#8a94a3;font-size:12px;margin:24px 0}.hidden{display:none!important}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.level{border:2px solid #edf0f4;background:#fff;border-radius:20px;padding:16px;text-align:left;cursor:pointer;box-shadow:0 7px 18px #3038490d}.level b{display:block;font-size:17px}.level small{display:block;color:var(--muted);margin-top:5px}.level.done{border-color:#70cfa7;background:#f0fbf6}.level.locked{opacity:.45;cursor:not-allowed}.bouquet{font-size:54px;margin:8px 0;animation:bob 1.6s ease-in-out infinite}.flower-count{background:#fff3d6;color:#8a5b00;border-radius:99px;padding:7px 12px;font-weight:900;font-size:13px}
     .game-head{display:flex;gap:12px;align-items:center;margin-bottom:16px}.back{border:0;background:#fff;border-radius:14px;width:44px;height:44px;cursor:pointer;box-shadow:0 5px 12px #0000000d}.progress-wrap{flex:1}.progress-meta{display:flex;justify-content:space-between;font-weight:800;font-size:13px;margin-bottom:7px}.progress{height:10px;border-radius:99px;background:#e9edf2;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--yellow));width:10%;border-radius:99px;transition:.35s}
     .qtag{font-size:13px;color:var(--orange);font-weight:900}.question{font-size:22px;line-height:1.55;margin:12px 0 20px}.options{display:grid;gap:11px}.option{display:flex;align-items:center;gap:12px;width:100%;border:2px solid #edf0f4;background:#fff;border-radius:18px;padding:14px;text-align:left;color:var(--ink);cursor:pointer;transition:.18s}.option:hover{border-color:#ffd0b5}.option:disabled{cursor:default}.letter{display:grid;place-items:center;min-width:34px;height:34px;border-radius:12px;background:#f2f4f7;font-weight:900}.option.correct{border-color:var(--green);background:#edf9f3}.option.correct .letter{background:var(--green);color:#fff}.option.wrong{border-color:var(--red);background:#fff0f0}.option.wrong .letter{background:var(--red);color:#fff}
@@ -28,13 +28,14 @@
 <main class="app">
   <header class="topbar"><div class="brand">📚 七年级全科闯关王</div><button class="sound" id="soundBtn" aria-label="开关音效">🔊</button></header>
   <section id="homeScreen">
-    <div class="card hero"><span class="eyebrow">新版人教版 · 同步基础</span><h1>今天，你想挑战<br><span>哪一科？</span></h1><p>每局随机 10 题，即答即解析。连续答对，冲击全科满星！</p><div class="stats"><div class="stat"><b id="bestScore">0</b><small>历史最高分</small></div><div class="stat"><b>5</b><small>学科题库</small></div><div class="stat"><b id="played">0</b><small>已闯关次数</small></div></div></div>
+    <div class="card hero"><span class="eyebrow">新版人教版 · 同步基础</span><h1>今天，你想挑战<br><span>哪一科？</span></h1><p>每局随机 10 题，即答即解析。连续答对，冲击全科满星！</p><div class="stats"><div class="stat"><b id="bestScore">0</b><small>历史最高分</small></div><div class="stat"><b>6</b><small>学科题库</small></div><div class="stat"><b id="played">0</b><small>已闯关次数</small></div></div></div>
     <h2>选择挑战科目</h2>
     <div class="subjects">
       <button class="subject chinese" data-subject="语文"><span class="icon">📖</span><b>语文 · 100题</b><small>字词 · 古诗文 · 阅读</small></button>
       <button class="subject math" data-subject="数学"><span class="icon">📐</span><b>数学 · 100题</b><small>有理数 · 整式 · 几何</small></button>
       <button class="subject english" data-subject="英语"><span class="icon">🌍</span><b>英语 · 100题</b><small>词汇 · 语法 · 情景交际</small></button>
       <button class="subject history" data-subject="历史"><span class="icon">🏺</span><b>历史 · 100题</b><small>中国古代史基础</small></button>
+      <button class="subject geography" data-subject="地理"><span class="icon">🧭</span><b>地理 · 100题</b><small>地球 · 地图 · 世界地理</small></button>
       <button class="subject morality" data-subject="道德与法治"><span class="icon">🌱</span><b>道德与法治 · 100题</b><small>成长 · 友谊 · 集体</small></button>
     </div><p class="footer-note">题目用于课后巩固，具体进度请以学校教材为准</p>
   </section>
@@ -96,6 +97,19 @@ const bank={
 {q:'丝绸之路开通与哪位人物出使西域密切相关？',o:['张骞','班超','蔡伦','司马迁'],a:0,e:'张骞两次出使西域，为丝绸之路的开通奠定基础。'},
 {q:'被后人尊称为“医圣”的是？',o:['华佗','张仲景','扁鹊','李时珍'],a:1,e:'东汉张仲景著《伤寒杂病论》，被后人尊称为“医圣”。'},
 {q:'秦始皇统一后，在全国统一使用的文字是？',o:['甲骨文','金文','小篆','楷书'],a:2,e:'秦朝统一文字，把小篆作为通用文字颁行全国。'}],
+'地理':[
+{q:'地球的形状是？',o:['正圆形','球体','正方体','圆柱体'],a:1,e:'地球是一个两极稍扁、赤道略鼓的不规则球体。'},
+{q:'地球自转一周大约需要多长时间？',o:['24小时','一个月','半年','一年'],a:0,e:'地球绕地轴自转一周约为24小时，形成昼夜更替。'},
+{q:'地球公转产生的主要地理现象是？',o:['昼夜更替','四季变化','太阳东升西落','潮汐变化'],a:1,e:'地球绕太阳公转并保持地轴倾斜，产生四季变化等现象。'},
+{q:'本初子午线的经度是？',o:['0°','90°E','180°','90°W'],a:0,e:'经过英国格林尼治天文台旧址的经线被定为0°经线，也叫本初子午线。'},
+{q:'赤道把地球划分为哪两个半球？',o:['东、西半球','南、北半球','昼、夜半球','海、陆半球'],a:1,e:'赤道是0°纬线，是南、北半球的分界线。'},
+{q:'在地图上，通常用什么来表示方向？',o:['比例尺','图例','指向标','注记'],a:2,e:'有指向标的地图要根据指向标判断方向，箭头通常指向北方。'},
+{q:'地图三要素包括方向、比例尺和什么？',o:['颜色','图例和注记','经纬网','海拔'],a:1,e:'方向、比例尺、图例和注记是地图的三要素。'},
+{q:'世界上面积最大的大洲是？',o:['非洲','亚洲','北美洲','欧洲'],a:1,e:'亚洲面积约4400万平方千米，是世界上面积最大的大洲。'},
+{q:'世界上面积最大的大洋是？',o:['大西洋','印度洋','北冰洋','太平洋'],a:3,e:'太平洋是世界上面积最大、最深的大洋。'},
+{q:'亚洲和非洲的分界线是？',o:['巴拿马运河','苏伊士运河','白令海峡','直布罗陀海峡'],a:1,e:'苏伊士运河沟通地中海和红海，是亚洲与非洲的分界线。'},
+{q:'等高线越密集，通常表示地面坡度怎样？',o:['越陡','越缓','完全平坦','无法判断'],a:0,e:'同一幅等高线地形图中，等高线越密集，坡度越陡。'},
+{q:'我国陆地面积约为多少平方千米？',o:['96万','960万','1960万','9600万'],a:1,e:'我国陆地面积约960万平方千米，居世界前列。'}],
 '道德与法治':[
 {q:'中学生活把我们带进一个别样的天地。面对新起点，我们应？',o:['封闭自己','积极适应新生活','只关注成绩','完全依赖父母'],a:1,e:'主动适应变化、结交朋友、发展兴趣，能帮助我们开启中学新生活。'},
 {q:'少年有梦，不应止于心动，更要付诸？',o:['幻想','等待','行动','抱怨'],a:2,e:'努力，是梦想与现实之间的桥梁，少年有梦更要付诸行动。'},
