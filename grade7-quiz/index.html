@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#fff8e8" />
-  <title>���꼶ȫ�ƴ�����</title>
-  <meta name="description" content="���ġ���ѧ��Ӣ���ʷ�������뷨�����ѡ���ⴳ��С��Ϸ" />
+  <title>七年级全科闯关王</title>
+  <meta name="description" content="语文、数学、英语、历史、道德与法治五科选择题闯关小游戏" />
   <style>
     :root{--ink:#213547;--muted:#718096;--paper:#fffdf6;--orange:#ff7a3d;--yellow:#ffd95a;--green:#49b88a;--blue:#5b8def;--red:#f06464;--shadow:0 14px 35px rgba(44,52,72,.12)}
     *{box-sizing:border-box} body{margin:0;color:var(--ink);font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;background:#fff8e8;min-height:100vh;overflow-x:hidden}
     body:before,body:after{content:"";position:fixed;border-radius:50%;z-index:-1;filter:blur(2px)} body:before{width:260px;height:260px;background:#ffe39b;right:-100px;top:-70px} body:after{width:220px;height:220px;background:#cdebdc;left:-100px;bottom:-70px}
     button{font:inherit}.app{max-width:720px;margin:auto;padding:20px 16px calc(26px + env(safe-area-inset-bottom))}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.brand{font-weight:900;font-size:20px}.sound{border:0;background:#fff;border-radius:16px;padding:10px 13px;box-shadow:0 5px 14px #00000010;cursor:pointer}
     .card{background:rgba(255,255,255,.92);border:2px solid #fff;border-radius:28px;box-shadow:var(--shadow);padding:24px;backdrop-filter:blur(8px)}
-    .hero{position:relative;overflow:hidden}.hero:after{content:"?";position:absolute;right:20px;top:12px;color:#ffd258;font-size:46px;transform:rotate(14deg)}
+    .hero{position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;right:20px;top:12px;color:#ffd258;font-size:46px;transform:rotate(14deg)}
     .eyebrow{display:inline-block;background:#fff0d0;color:#9b5b00;border-radius:99px;padding:7px 12px;font-size:13px;font-weight:800}.hero h1{font-size:clamp(30px,8vw,48px);line-height:1.05;margin:18px 0 12px;letter-spacing:-2px}.hero h1 span{color:var(--orange)}.hero p{color:var(--muted);line-height:1.7;margin:0 0 18px}.stats{display:flex;gap:10px}.stat{flex:1;background:#f7f8fb;border-radius:16px;padding:12px;text-align:center}.stat b{display:block;font-size:20px}.stat small{color:var(--muted)}
     h2{font-size:18px;margin:25px 4px 12px}.subjects{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.subject{border:0;text-align:left;border-radius:22px;padding:17px;color:var(--ink);cursor:pointer;min-height:112px;transition:.18s transform,.18s box-shadow;box-shadow:0 8px 20px #30384912}.subject:active{transform:scale(.97)}.subject:last-child{grid-column:1/-1}.subject .icon{font-size:28px;display:block;margin-bottom:8px}.subject b{font-size:17px}.subject small{display:block;margin-top:5px;color:#536270}.chinese{background:#ffe5da}.math{background:#dcecff}.english{background:#e4f6e9}.history{background:#fff0c4}.morality{background:#eadffc}
     .footer-note{text-align:center;color:#8a94a3;font-size:12px;margin:24px 0}.hidden{display:none!important}.level-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.level{border:2px solid #edf0f4;background:#fff;border-radius:20px;padding:16px;text-align:left;cursor:pointer;box-shadow:0 7px 18px #3038490d}.level b{display:block;font-size:17px}.level small{display:block;color:var(--muted);margin-top:5px}.level.done{border-color:#70cfa7;background:#f0fbf6}.level.locked{opacity:.45;cursor:not-allowed}.bouquet{font-size:54px;margin:8px 0;animation:bob 1.6s ease-in-out infinite}.flower-count{background:#fff3d6;color:#8a5b00;border-radius:99px;padding:7px 12px;font-weight:900;font-size:13px}
@@ -26,89 +26,89 @@
 </head>
 <body>
 <main class="app">
-  <header class="topbar"><div class="brand">?? ���꼶ȫ�ƴ�����</div><button class="sound" id="soundBtn" aria-label="������Ч">??</button></header>
+  <header class="topbar"><div class="brand">📚 七年级全科闯关王</div><button class="sound" id="soundBtn" aria-label="开关音效">🔊</button></header>
   <section id="homeScreen">
-    <div class="card hero"><span class="eyebrow">�°��˽̰� �� ͬ������</span><h1>���죬������ս<br><span>��һ�ƣ�</span></h1><p>ÿ����� 10 �⣬���𼴽�����������ԣ����ȫ�����ǣ�</p><div class="stats"><div class="stat"><b id="bestScore">0</b><small>��ʷ��߷�</small></div><div class="stat"><b>5</b><small>ѧ�����</small></div><div class="stat"><b id="played">0</b><small>�Ѵ��ش���</small></div></div></div>
-    <h2>ѡ����ս��Ŀ</h2>
+    <div class="card hero"><span class="eyebrow">新版人教版 · 同步基础</span><h1>今天，你想挑战<br><span>哪一科？</span></h1><p>每局随机 10 题，即答即解析。连续答对，冲击全科满星！</p><div class="stats"><div class="stat"><b id="bestScore">0</b><small>历史最高分</small></div><div class="stat"><b>5</b><small>学科题库</small></div><div class="stat"><b id="played">0</b><small>已闯关次数</small></div></div></div>
+    <h2>选择挑战科目</h2>
     <div class="subjects">
-      <button class="subject chinese" data-subject="����"><span class="icon">??</span><b>���� �� 100��</b><small>�ִ� �� ��ʫ�� �� �Ķ�</small></button>
-      <button class="subject math" data-subject="��ѧ"><span class="icon">??</span><b>��ѧ �� 100��</b><small>������ �� ��ʽ �� ����</small></button>
-      <button class="subject english" data-subject="Ӣ��"><span class="icon">??</span><b>Ӣ�� �� 100��</b><small>�ʻ� �� �﷨ �� �龰����</small></button>
-      <button class="subject history" data-subject="��ʷ"><span class="icon">??</span><b>��ʷ �� 100��</b><small>�й��Ŵ�ʷ����</small></button>
-      <button class="subject morality" data-subject="�����뷨��"><span class="icon">??</span><b>�����뷨�� �� 100��</b><small>�ɳ� �� ���� �� ����</small></button>
-    </div><p class="footer-note">��Ŀ���ڿκ󹮹̣������������ѧУ�̲�Ϊ׼</p>
+      <button class="subject chinese" data-subject="语文"><span class="icon">📖</span><b>语文 · 100题</b><small>字词 · 古诗文 · 阅读</small></button>
+      <button class="subject math" data-subject="数学"><span class="icon">📐</span><b>数学 · 100题</b><small>有理数 · 整式 · 几何</small></button>
+      <button class="subject english" data-subject="英语"><span class="icon">🌍</span><b>英语 · 100题</b><small>词汇 · 语法 · 情景交际</small></button>
+      <button class="subject history" data-subject="历史"><span class="icon">🏺</span><b>历史 · 100题</b><small>中国古代史基础</small></button>
+      <button class="subject morality" data-subject="道德与法治"><span class="icon">🌱</span><b>道德与法治 · 100题</b><small>成长 · 友谊 · 集体</small></button>
+    </div><p class="footer-note">题目用于课后巩固，具体进度请以学校教材为准</p>
   </section>
-  <section id="levelScreen" class="hidden"><div class="game-head"><button class="back" id="levelBack">��</button><div><b id="levelSubject"></b><div style="color:var(--muted);font-size:13px;margin-top:3px">ÿ��10�⣬ͨ�ؽ���һ����</div></div><span class="flower-count" id="flowerCount">?? 0</span></div><div class="card"><h1 style="margin-top:0">ѡ��ؿ�</h1><div class="level-grid" id="levelGrid"></div></div></section>
-  <section id="gameScreen" class="hidden"><div class="game-head"><button class="back" id="backBtn">��</button><div class="progress-wrap"><div class="progress-meta"><span id="subjectName"></span><span id="counter"></span></div><div class="progress"><i id="progressBar"></i></div></div></div><div class="card"><div class="qtag" id="qtag"></div><h1 class="question" id="question"></h1><div class="options" id="options"></div><div class="explain hidden" id="explain"></div><button class="next hidden" id="nextBtn">��һ�� ��</button></div></section>
-  <section id="resultScreen" class="hidden"><div class="card result"><div class="bouquet" id="bouquet">??</div><h1 id="resultTitle">������ɣ�</h1><p id="resultSub"></p><div class="score-ring" id="scoreRing"><div><b id="finalScore">0</b><small>��</small></div></div><div class="stars" id="stars"></div><p id="rewardText" style="font-weight:900;color:var(--green)"></p><div class="actions"><button class="again" id="againBtn">�ٴ�����</button><button class="home" id="homeBtn">�ؿ���ͼ</button></div></div></section>
+  <section id="levelScreen" class="hidden"><div class="game-head"><button class="back" id="levelBack">←</button><div><b id="levelSubject"></b><div style="color:var(--muted);font-size:13px;margin-top:3px">每关10题，通关奖励一束花</div></div><span class="flower-count" id="flowerCount">💐 0</span></div><div class="card"><h1 style="margin-top:0">选择关卡</h1><div class="level-grid" id="levelGrid"></div></div></section>
+  <section id="gameScreen" class="hidden"><div class="game-head"><button class="back" id="backBtn">←</button><div class="progress-wrap"><div class="progress-meta"><span id="subjectName"></span><span id="counter"></span></div><div class="progress"><i id="progressBar"></i></div></div></div><div class="card"><div class="qtag" id="qtag"></div><h1 class="question" id="question"></h1><div class="options" id="options"></div><div class="explain hidden" id="explain"></div><button class="next hidden" id="nextBtn">下一题 →</button></div></section>
+  <section id="resultScreen" class="hidden"><div class="card result"><div class="bouquet" id="bouquet">💐</div><h1 id="resultTitle">闯关完成！</h1><p id="resultSub"></p><div class="score-ring" id="scoreRing"><div><b id="finalScore">0</b><small>分</small></div></div><div class="stars" id="stars"></div><p id="rewardText" style="font-weight:900;color:var(--green)"></p><div class="actions"><button class="again" id="againBtn">再闯本关</button><button class="home" id="homeBtn">关卡地图</button></div></div></section>
 </main><div class="toast" id="toast"></div>
 <script>
 const bank={
-'����':[
-{q:'�������С��𡱵���ȷ�����ǣ�',o:['li��ng','ni��ng','r��ng','n��ng'],a:1,e:'�����𡱶��� y��n ni��ng��������׼��������'},
-{q:'���д�����д��ȫ��ȷ��һ���ǣ�',o:['��֦��չ','������ȥ','��Ȼ��ͬ','��������'],a:0,e:'��������ȥ�����������С�������ȷд����'},
-{q:'���Ҽĳ��������£����ֱ��ҹ�������������ǣ�',o:['�Ÿ�','���','����','�ܲ�'],a:1,e:'ʫ�������ס�����������Ǩ����ң�д˼ġ���'},
-{q:'���о���ʹ�ñ����޴ǵ��ǣ�',o:['�����ţ������š�','���������ص����ޡ�','ɽ���������ˡ�','̫�������������ˡ�'],a:1,e:'�ѡ����족����������ص����ޡ�����������'},
-{q:'�������Ҫ��¼��˭������ӵ����У�',o:['����','����','����','ׯ��'],a:1,e:'������Ǽ�¼���Ӽ���������е���¼��������'},
-{q:'����������ҹ������һ���ǣ�',o:['���������','����������','����һ����','������ˮǰ'],a:0,e:'�������塶�α���ɽ�¡�����������ҹ����������ꡣ'},
-{q:'���¹ʶ�֪�£�����Ϊʦ�ӡ��С��ʡ�ָʲô��',o:['ԭ��','�ɵ�֪ʶ','����','����'],a:1,e:'���¹ʡ�ָ��ϰѧ����֪ʶ��'},
-{q:'�������ھ��ǵ��ǣ�',o:['�Ҹ�','���','����','СŮ'],a:2,e:'�������ǶԶԷ����׵���ƣ�������ǫ�ǡ�'},
-{q:'�����ϵĶ��졷�������ǣ�',o:['������','����','����','³Ѹ'],a:2,e:'�����ϵĶ��졷�����ᴴ����д��ɢ�ġ�'},
-{q:'��������˹�򣬲�����ҹ���еġ�˹��ָ��',o:['ʱ��','��ˮ','����','̫��'],a:1,e:'����վ�ںӱ߸�̾�����С�˹��ָ���ŵĺ�ˮ��'},
-{q:'������������ͳ������������ﵯ�١�ʹ����ʲô�޴ǣ�',o:['����','�ű�','����','����'],a:0,e:'���ͳ��������١����������˵Ķ����������ˡ�'},
-{q:'���б��ʹ����ȷ���ǣ�',o:['��ȥ��������','�������䰡��','����Ҫ��Ǧ�ʡ���Ƥ�ͳ��ӡ�','��ʦ˵������������'],a:2,e:'���д���֮���öٺţ���ĩ�þ�ţ���������ȷ��'}],
-'��ѧ':[
-{q:'?3 ���෴���ǣ�',o:['?3','3','1/3','?1/3'],a:1,e:'ֻ�з��Ų�ͬ����������Ϊ�෴�������� ?3 ���෴���� 3��'},
-{q:'���㣺?2 + 5 =��',o:['?7','?3','3','7'],a:2,e:'���������ӣ�ȡ����ֵ�ϴ����ķ��ţ�5?2=3��'},
-{q:'����ֵ���� 4 �����м�����',o:['0��','1��','2��','4��'],a:2,e:'|4|=4��|?4|=4�������� 2 ����'},
-{q:'����ʽ ?3x2y �Ĵ����ǣ�',o:['2','3','4','?3'],a:1,e:'������������ĸָ��֮�ͣ�2+1=3��'},
-{q:'�� x+3=8���� x=��',o:['5','11','?5','?11'],a:0,e:'��ʽ����ͬʱ��ȥ 3���� x=5��'},
-{q:'���и�����ͬ������ǣ�',o:['2x��2y','3ab��?ab','x2��x','4��4x'],a:1,e:'������ĸ��ͬ������ͬ��ĸ��ָ����ͬ������ͬ���'},
-{q:'һ������ 35�㣬��������ǣ�',o:['55��','65��','145��','325��'],a:0,e:'��Ϊ��ǵ�������֮���� 90�㣬90��?35��=55�㡣'},
-{q:'��������ԭ�����Ϊ 2 �ĵ��ʾ�����ǣ�',o:['ֻ��2','ֻ��?2','2��?2','0��2'],a:2,e:'ԭ�������������Ϊ 2 �ĵ�ֱ��ʾ 2 �� ?2��'},
-{q:'���㣺23 =��',o:['5','6','8','9'],a:2,e:'23=2��2��2=8��'},
-{q:'��֪ a=2���� 3a?1 ��ֵ�ǣ�',o:['3','5','6','7'],a:1,e:'���� a=2��3��2?1=5��'},
-{q:'����������Ի�������ֱ�ߣ�',o:['0��','1��','2��','������'],a:1,e:'����ȷ��һ��ֱ�ߡ�'},
-{q:'�� 2x=10���� x=��',o:['2','5','8','20'],a:1,e:'��ʽ����ͬʱ���� 2���� x=5��'}],
-'Ӣ��':[
-{q:'�� How are you? �� ______',o:['I am fine, thanks.','Good morning.','My name is Tom.','Nice to meet you.'],a:0,e:'��How are you?��ѯ����������������I am fine, thanks.��'},
-{q:'This is ______ orange.',o:['a','an','the','/'],a:1,e:'orange ��Ԫ�����ؿ�ͷ����ʾ��һ����ʱ�� an��'},
-{q:'The plural form of ��box�� is ______.',o:['boxs','boxes','boxies','box'],a:1,e:'�� x ��β�Ŀ������ʣ�����ͨ���� -es��'},
-{q:'�� What��s this in English? �� ______ a pen.',o:['This','That','It','It��s'],a:3,e:'�ش���Ʒ���Ƴ��á�It��s + ���ʡ���'},
-{q:'My sister ______ a new schoolbag.',o:['have','has','having','is have'],a:1,e:'���� My sister �ǵ����˳Ƶ�����have ��Ϊ has��'},
-{q:'Where ______ your books?',o:['is','am','are','be'],a:2,e:'���� books �Ǹ�����be ������ are��'},
-{q:'I like English, ______ it is interesting.',o:['but','because','or','so'],a:1,e:'����˵��ϲ��Ӣ���ԭ���� because��'},
-{q:'Which word has a different vowel sound?',o:['name','cake','map','game'],a:2,e:'name��cake��game �� a �� /e?/��map �� a �� /?/��'},
-{q:'Let��s ______ basketball after school.',o:['play','plays','playing','to play'],a:0,e:'Let��s ��Ӷ���ԭ�Ρ�'},
-{q:'�� ______ is your birthday? �� It��s in May.',o:['What','When','Where','Who'],a:1,e:'ѯ��ʱ�������ʴ� When��'},
-{q:'Tom and I ______ good friends.',o:['am','is','are','be'],a:2,e:'Tom and I �Ǹ������be ������ are��'},
-{q:'The book is ______ the desk.',o:['in','on','at','for'],a:1,e:'�������ӱ��棬�ý�� on��'}],
-'��ʷ':[
-{q:'�ҹ�����Ŀǰ��ȷ�ϵ����������֮һ�ǣ�',o:['������','ɽ������','Ԫı��','��ķ����'],a:2,e:'Ԫı�˾��Լ170���꣬���ҹ�����Ŀǰ��ȷ�ϵ����������֮һ��'},
-{q:'���¾�����Ҫ��ֲ��ũ�����ǣ�',o:['ˮ��','��','С��','����'],a:1,e:'���¾��������ڻƺ�������Ҫ��ֲ�ڡ�'},
-{q:'���������й���ʷ�ϵ�һ�������ǣ�',o:['�ĳ�','�̳�','�ܳ�','�س�'],a:0,e:'Լ��Ԫǰ2070�꣬�������ĳ���'},
-{q:'Ŀǰ��֪�ҹ������ֿɿ�����ʷ���ĸ�������ʼ��',o:['�ĳ�','�̳�','����','�س�'],a:1,e:'�̳��׹����Ѿ߱����ֻ����ṹ���ҹ������ֿɿ�����ʷ���̳���ʼ��'},
-{q:'����ʱ�ڵ�һ�������ǣ�',o:['���¹�','��ׯ��','�뻸��','���Ĺ�'],a:2,e:'�뻸�����ù��ٸĸ��Ϊ����ʱ�ڵ�һ��������'},
-{q:'ս��ʱ�������ع��䷨���ǣ�',o:['����','����','��˹','����'],a:1,e:'��Ԫǰ356�꣬��Т�������������ֱ䷨��'},
-{q:'������ˮ��������˭�����޽���',o:['���','����','����','����'],a:0,e:'ս��ʱ�ڣ��ع��񿤿�����������޽������ߡ�'},
-{q:'��ͳһ������ʱ���ǣ�',o:['��Ԫǰ221��','��Ԫǰ202��','��Ԫ221��','��Ԫ202��'],a:0,e:'��Ԫǰ221�꣬�����������ͳһ��ҵ��'},
-{q:'�����Ϊ��ǿ���뼯Ȩ��������˭�ġ��ƶ������飿',o:['���','������','������','����'],a:2,e:'����۲��������Ƚ��飬�䲼���ƶ����'},
-{q:'˿��֮·��ͨ����λ�����ʹ����������أ�',o:['���','�೬','����','˾��Ǩ'],a:0,e:'������γ�ʹ����Ϊ˿��֮·�Ŀ�ͨ�춨������'},
-{q:'���������Ϊ��ҽʥ�����ǣ�',o:['��٢','���پ�','��ȵ','��ʱ��'],a:1,e:'�������پ������˺��Ӳ��ۡ������������Ϊ��ҽʥ����'},
-{q:'��ʼ��ͳһ����ȫ��ͳһʹ�õ������ǣ�',o:['�׹���','����','С׭','����'],a:2,e:'�س�ͳһ���֣���С׭��Ϊͨ�����ְ���ȫ����'}],
-'�����뷨��':[
-{q:'��ѧ��������Ǵ���һ����������ء��������㣬����Ӧ��',o:['����Լ�','������Ӧ������','ֻ��ע�ɼ�','��ȫ������ĸ'],a:1,e:'������Ӧ�仯���ύ���ѡ���չ��Ȥ���ܰ������ǿ�����ѧ�����'},
-{q:'�������Σ���Ӧֹ���Ķ�����Ҫ���',o:['����','�ȴ�','�ж�','��Թ'],a:2,e:'Ŭ��������������ʵ֮����������������θ�Ҫ�����ж���'},
-{q:'��֪֮�ߣ������֮�ߣ���֮�ߣ�������֮�ߡ���ʾ����ѧϰ��Ҫ��',o:['���ֲ�������Ȥ','ֻ������Ӳ��','��ȫ������ʦ','�ܾ�����'],a:0,e:'ѧϰ��Ȥ����ǿѧϰ������������������ѧϰ��'},
-{q:'��ȷ��ʶ�Լ������ԣ�',o:['�ٽ����ҷ�չ','��������ϲ���Լ�','����һ�д���','������Ҫ���˰���'],a:0,e:'��ȷ��ʶ�Լ�����������ǿ���ģ����õط�չ������'},
-{q:'������˵����ۣ�����Ӧ�ã�',o:['һ�Ž���','һ�žܾ�','�͹��侲����','���̷���'],a:2,e:'Ҫ�������˵�̬�������ۣ���ҲҪ�͹��侲�������Ȳ�ä��Ҳ�����ӡ�'},
-{q:'��������ʲ�������',o:['���ܵĹ�ϵ','ƽ��˫��','��������','һ�ɲ���'],a:3,e:'���겻��һ�ɲ���ģ�����Ҫѧ���������ĵ������µ����ꡣ'},
-{q:'����֮�䷢����ͻʱ����ǡ���������ǣ�',o:['�໥����','�侲��ͨ','��������','�������ع�'],a:1,e:'������ͻ��Ҫ�����侲��̹�Ͻ�����Ѱ�ұ˴˶��ܽ��ܵĽ����ʽ��'},
-{q:'���Ͻ�����Ҫ���ǣ�',o:['���ޱ���','����ѡ�񲢱�����˽','�������','ֻ˵�ٻ�'],a:1,e:'��������Ľ����в�ȷ�����أ�Ҫ�����ұ�����ʶ������ѡ��'},
-{q:'�����ʦ������������Ӧ��',o:['������ʦ����������','���ڶ�ײ','�Ӵ��ӿ�','��������'],a:0,e:'������ζ�Ź��ġ����Ѻ�Ȱ�룬������ʦ�����ڸĽ��Լ���'},
-{q:'Т�׾����ǣ�',o:['��������','ֻ����ĸ���ʰ���','�л�����Ĵ�ͳ����','����ʱ��������'],a:2,e:'Т�׾������л�����Ĵ�ͳ���£�Ҳ��ÿ���й�����ķ�������'},
-{q:'���������У�������Ը�뼯������ͻʱӦ��',o:['���ӹ���','�������ĺ�����','�����˳�����','ɿ�����˷���'],a:1,e:'ͨ��Ӧ�ø�����Ը���Ӽ��干ͬҪ�󣬲�ͨ��ǡ����ʽ����Ľ����顣'},
-{q:'�����Ǳ���ģ����Ƕ�����Ӧ���е�̬���ǣ�',o:['Į������','��η����','ֻ�䰮�Լ�������','����ð��'],a:1,e:'������ֵ����һ�У���η������Ҫ�䰮�Լ���ҲҪ�ػ����ˡ�'}]
+'语文':[
+{q:'“酝酿”中“酿”的正确读音是？',o:['liàng','niàng','ráng','nàng'],a:1,e:'“酝酿”读作 yùn niàng，比喻做准备工作。'},
+{q:'下列词语书写完全正确的一项是？',o:['花枝招展','翻来复去','截然不同','人声顶沸'],a:0,e:'“翻来覆去”“人声鼎沸”才是正确写法。'},
+{q:'“我寄愁心与明月，随君直到夜郎西”的作者是？',o:['杜甫','李白','王湾','曹操'],a:1,e:'诗句出自李白《闻王昌龄左迁龙标遥有此寄》。'},
+{q:'下列句子使用比喻修辞的是？',o:['盼望着，盼望着。','春天像刚落地的娃娃。','山朗润起来了。','太阳的脸红起来了。'],a:1,e:'把“春天”比作“刚落地的娃娃”，是明喻。'},
+{q:'《论语》主要记录了谁及其弟子的言行？',o:['老子','孔子','孟子','庄子'],a:1,e:'《论语》是记录孔子及其弟子言行的语录体著作。'},
+{q:'“海日生残夜”的下一句是？',o:['江春入旧年','归雁洛阳边','风正一帆悬','行舟绿水前'],a:0,e:'出自王湾《次北固山下》：海日生残夜，江春入旧年。'},
+{q:'“温故而知新，可以为师矣”中“故”指什么？',o:['原因','旧的知识','故乡','故事'],a:1,e:'“温故”指温习学过的知识。'},
+{q:'下列属于敬辞的是？',o:['家父','舍弟','令尊','小女'],a:2,e:'“令尊”是对对方父亲的尊称；其余是谦辞。'},
+{q:'《济南的冬天》的作者是？',o:['朱自清','冰心','老舍','鲁迅'],a:2,e:'《济南的冬天》是老舍创作的写景散文。'},
+{q:'“逝者如斯夫，不舍昼夜”中的“斯”指？',o:['时间','河水','孔子','太阳'],a:1,e:'孔子站在河边感叹，句中“斯”指流逝的河水。'},
+{q:'“油蛉在这里低唱，蟋蟀们在这里弹琴”使用了什么修辞？',o:['拟人','排比','反问','夸张'],a:0,e:'“低唱”“弹琴”赋予昆虫人的动作，是拟人。'},
+{q:'下列标点使用正确的是？',o:['你去过北京吗。','今天真冷啊？','我们要带铅笔、橡皮和尺子。','老师说：“请坐”。'],a:2,e:'并列词语之间用顿号，句末用句号，第三项正确。'}],
+'数学':[
+{q:'−3 的相反数是？',o:['−3','3','1/3','−1/3'],a:1,e:'只有符号不同的两个数互为相反数，所以 −3 的相反数是 3。'},
+{q:'计算：−2 + 5 =？',o:['−7','−3','3','7'],a:2,e:'异号两数相加，取绝对值较大数的符号，5−2=3。'},
+{q:'绝对值等于 4 的数有几个？',o:['0个','1个','2个','4个'],a:2,e:'|4|=4，|−4|=4，所以有 2 个。'},
+{q:'单项式 −3x²y 的次数是？',o:['2','3','4','−3'],a:1,e:'次数是所有字母指数之和：2+1=3。'},
+{q:'若 x+3=8，则 x=？',o:['5','11','−5','−11'],a:0,e:'等式两边同时减去 3，得 x=5。'},
+{q:'下列各组是同类项的是？',o:['2x与2y','3ab与−ab','x²与x','4与4x'],a:1,e:'所含字母相同，且相同字母的指数相同，才是同类项。'},
+{q:'一个角是 35°，它的余角是？',o:['55°','65°','145°','325°'],a:0,e:'互为余角的两个角之和是 90°，90°−35°=55°。'},
+{q:'数轴上与原点距离为 2 的点表示的数是？',o:['只有2','只有−2','2或−2','0或2'],a:2,e:'原点左右两侧距离为 2 的点分别表示 2 和 −2。'},
+{q:'计算：2³ =？',o:['5','6','8','9'],a:2,e:'2³=2×2×2=8。'},
+{q:'已知 a=2，则 3a−1 的值是？',o:['3','5','6','7'],a:1,e:'代入 a=2，3×2−1=5。'},
+{q:'经过两点可以画出几条直线？',o:['0条','1条','2条','无数条'],a:1,e:'两点确定一条直线。'},
+{q:'若 2x=10，则 x=？',o:['2','5','8','20'],a:1,e:'等式两边同时除以 2，得 x=5。'}],
+'英语':[
+{q:'— How are you? — ______',o:['I am fine, thanks.','Good morning.','My name is Tom.','Nice to meet you.'],a:0,e:'“How are you?”询问身体或近况，常答“I am fine, thanks.”'},
+{q:'This is ______ orange.',o:['a','an','the','/'],a:1,e:'orange 以元音音素开头，表示“一个”时用 an。'},
+{q:'The plural form of “box” is ______.',o:['boxs','boxes','boxies','box'],a:1,e:'以 x 结尾的可数名词，复数通常加 -es。'},
+{q:'— What’s this in English? — ______ a pen.',o:['This','That','It','It’s'],a:3,e:'回答物品名称常用“It’s + 名词”。'},
+{q:'My sister ______ a new schoolbag.',o:['have','has','having','is have'],a:1,e:'主语 My sister 是第三人称单数，have 变为 has。'},
+{q:'Where ______ your books?',o:['is','am','are','be'],a:2,e:'主语 books 是复数，be 动词用 are。'},
+{q:'I like English, ______ it is interesting.',o:['but','because','or','so'],a:1,e:'后半句说明喜欢英语的原因，用 because。'},
+{q:'Which word has a different vowel sound?',o:['name','cake','map','game'],a:2,e:'name、cake、game 中 a 发 /eɪ/，map 中 a 发 /æ/。'},
+{q:'Let’s ______ basketball after school.',o:['play','plays','playing','to play'],a:0,e:'Let’s 后接动词原形。'},
+{q:'— ______ is your birthday? — It’s in May.',o:['What','When','Where','Who'],a:1,e:'询问时间用疑问词 When。'},
+{q:'Tom and I ______ good friends.',o:['am','is','are','be'],a:2,e:'Tom and I 是复数主语，be 动词用 are。'},
+{q:'The book is ______ the desk.',o:['in','on','at','for'],a:1,e:'书在桌子表面，用介词 on。'}],
+'历史':[
+{q:'我国境内目前已确认的最早古人类之一是？',o:['北京人','山顶洞人','元谋人','河姆渡人'],a:2,e:'元谋人距今约170万年，是我国境内目前已确认的最早古人类之一。'},
+{q:'半坡居民主要种植的农作物是？',o:['水稻','粟','小麦','玉米'],a:1,e:'半坡居民生活在黄河流域，主要种植粟。'},
+{q:'禹建立的中国历史上第一个王朝是？',o:['夏朝','商朝','周朝','秦朝'],a:0,e:'约公元前2070年，禹建立夏朝。'},
+{q:'目前所知我国有文字可考的历史从哪个朝代开始？',o:['夏朝','商朝','西周','秦朝'],a:1,e:'商朝甲骨文已具备汉字基本结构，我国有文字可考的历史从商朝开始。'},
+{q:'春秋时期第一个霸主是？',o:['秦穆公','楚庄王','齐桓公','晋文公'],a:2,e:'齐桓公任用管仲改革，成为春秋时期第一个霸主。'},
+{q:'战国时期主持秦国变法的是？',o:['管仲','商鞅','李斯','韩非'],a:1,e:'公元前356年，秦孝公任用商鞅主持变法。'},
+{q:'都江堰水利工程由谁主持修建？',o:['李冰','大禹','商鞅','蒙恬'],a:0,e:'战国时期，秦国蜀郡郡守李冰主持修建都江堰。'},
+{q:'秦统一六国的时间是？',o:['公元前221年','公元前202年','公元221年','公元202年'],a:0,e:'公元前221年，秦王嬴政完成统一大业。'},
+{q:'汉武帝为加强中央集权，采纳了谁的“推恩”建议？',o:['张骞','董仲舒','主父偃','卫青'],a:2,e:'汉武帝采纳主父偃建议，颁布“推恩令”。'},
+{q:'丝绸之路开通与哪位人物出使西域密切相关？',o:['张骞','班超','蔡伦','司马迁'],a:0,e:'张骞两次出使西域，为丝绸之路的开通奠定基础。'},
+{q:'被后人尊称为“医圣”的是？',o:['华佗','张仲景','扁鹊','李时珍'],a:1,e:'东汉张仲景著《伤寒杂病论》，被后人尊称为“医圣”。'},
+{q:'秦始皇统一后，在全国统一使用的文字是？',o:['甲骨文','金文','小篆','楷书'],a:2,e:'秦朝统一文字，把小篆作为通用文字颁行全国。'}],
+'道德与法治':[
+{q:'中学生活把我们带进一个别样的天地。面对新起点，我们应？',o:['封闭自己','积极适应新生活','只关注成绩','完全依赖父母'],a:1,e:'主动适应变化、结交朋友、发展兴趣，能帮助我们开启中学新生活。'},
+{q:'少年有梦，不应止于心动，更要付诸？',o:['幻想','等待','行动','抱怨'],a:2,e:'努力，是梦想与现实之间的桥梁，少年有梦更要付诸行动。'},
+{q:'“知之者，不如好之者；好之者，不如乐之者”启示我们学习需要？',o:['发现并保持兴趣','只靠死记硬背','完全依赖老师','拒绝合作'],a:0,e:'学习兴趣能增强学习动力，帮助我们享受学习。'},
+{q:'正确认识自己，可以？',o:['促进自我发展','让所有人喜欢自己','避免一切挫折','不再需要他人帮助'],a:0,e:'正确认识自己，有助于增强信心，更好地发展能力。'},
+{q:'面对他人的评价，我们应该？',o:['一概接受','一概拒绝','客观冷静分析','立刻反驳'],a:2,e:'要重视他人的态度与评价，但也要客观冷静分析，既不盲从也不忽视。'},
+{q:'友谊的特质不包括？',o:['亲密的关系','平等双向','心灵相遇','一成不变'],a:3,e:'友谊不是一成不变的，我们要学会接受友谊的淡出和新的友谊。'},
+{q:'朋友之间发生冲突时，较恰当的做法是？',o:['相互辱骂','冷静沟通','立即绝交','在网上曝光'],a:1,e:'处理冲突需要保持冷静、坦诚交流，寻找彼此都能接受的解决方式。'},
+{q:'网上交友需要我们？',o:['毫无保留','慎重选择并保护隐私','随意见面','只说假话'],a:1,e:'虚拟世界的交往有不确定因素，要有自我保护意识，慎重选择。'},
+{q:'面对老师的批评，我们应？',o:['理解老师的良苦用心','当众顶撞','从此逃课','怀恨在心'],a:0,e:'批评意味着关心、提醒和劝诫，理解老师有助于改进自己。'},
+{q:'孝亲敬长是？',o:['成年后的事','只给父母物质帮助','中华民族的传统美德','考试时才做的事'],a:2,e:'孝亲敬长是中华民族的传统美德，也是每个中国公民的法定义务。'},
+{q:'集体生活中，个人意愿与集体规则冲突时应？',o:['无视规则','理解规则的合理性','马上退出集体','煽动他人反对'],a:1,e:'通常应让个人意愿服从集体共同要求，并通过恰当方式提出改进建议。'},
+{q:'生命是宝贵的，我们对生命应持有的态度是？',o:['漠视生命','敬畏生命','只珍爱自己的生命','随意冒险'],a:1,e:'生命价值高于一切，敬畏生命既要珍爱自己，也要关怀他人。'}]
 };
 let subject='',questions=[],index=0,score=0,sound=true,locked=false,currentLevel=1;
 const $=s=>document.querySelector(s), home=$('#homeScreen'),levels=$('#levelScreen'),game=$('#gameScreen'),result=$('#resultScreen');
@@ -118,15 +118,14 @@ function show(which){[home,levels,game,result].forEach(x=>x.classList.add('hidde
 function updateStats(){bestScore.textContent=localStorage.g7best||0;played.textContent=localStorage.g7played||0} updateStats();
 document.querySelectorAll('.subject').forEach(b=>b.onclick=()=>openLevels(b.dataset.subject));
 function progress(){try{return JSON.parse(localStorage.g7progress||'{}')}catch(e){return {}}}
-function openLevels(s){subject=s;levelSubject.textContent=`${s} �� 100�ⴳ��`;const p=progress(),done=p[s]||0;flowerCount.textContent=`?? ${done}`;levelGrid.innerHTML='';for(let n=1;n<=10;n++){const b=document.createElement('button');const unlocked=n<=done+1;b.className='level '+(n<=done?'done ':'')+(unlocked?'':'locked');b.innerHTML=`<b>${n<=done?'? ':unlocked?'?? ':'?? '}�� ${n} ��</b><small>�� ${(n-1)*10+1}��${n*10} �� ${n<=done?'�� �ѻ���':''}</small>`;b.onclick=()=>unlocked&&startLevel(n);levelGrid.appendChild(b)}show(levels)}
+function openLevels(s){subject=s;levelSubject.textContent=`${s} · 100题闯关`;const p=progress(),done=p[s]||0;flowerCount.textContent=`💐 ${done}`;levelGrid.innerHTML='';for(let n=1;n<=10;n++){const b=document.createElement('button');const unlocked=n<=done+1;b.className='level '+(n<=done?'done ':'')+(unlocked?'':'locked');b.innerHTML=`<b>${n<=done?'✅ ':unlocked?'🚩 ':'🔒 '}第 ${n} 关</b><small>第 ${(n-1)*10+1}—${n*10} 题 ${n<=done?'· 已获花束':''}</small>`;b.onclick=()=>unlocked&&startLevel(n);levelGrid.appendChild(b)}show(levels)}
 function make100(s){const src=bank[s],out=[];for(let i=0;i<100;i++){const base=src[i%src.length];out.push({...base,q:`${base.q}`,id:i+1})}return out}
 function startLevel(n){currentLevel=n;const all=make100(subject);questions=all.slice((n-1)*10,n*10);index=0;score=0;show(game);render()}
-function render(){locked=false;const x=questions[index];subjectName.textContent=`${subject} �� ��${currentLevel}��`;counter.textContent=`${index+1} / 10`;progressBar.style.width=`${(index+1)*10}%`;qtag.textContent=`�� ${x.id} �� �� ȫ�����`;question.textContent=x.q;explain.classList.add('hidden');nextBtn.classList.add('hidden');options.innerHTML='';x.o.forEach((t,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<span class="letter">${'ABCD'[i]}</span><span>${t}</span>`;b.onclick=()=>answer(i,b);options.appendChild(b)})}
-function answer(i,btn){if(locked)return;locked=true;const x=questions[index],all=[...options.children];all.forEach(b=>b.disabled=true);all[x.a].classList.add('correct');if(i===x.a){score+=10;beep(true);toast('�������+10 �� ??')}else{btn.classList.add('wrong');beep(false)}explain.innerHTML=`<b>${i===x.a?'�ش���ȷ��':'��ȷ�𰸣�'+ 'ABCD'[x.a]}</b><br>${x.e}`;explain.classList.remove('hidden');nextBtn.textContent=index===9?'�鿴�ɼ�':'��һ�� ��';nextBtn.classList.remove('hidden')}
+function render(){locked=false;const x=questions[index];subjectName.textContent=`${subject} · 第${currentLevel}关`;counter.textContent=`${index+1} / 10`;progressBar.style.width=`${(index+1)*10}%`;qtag.textContent=`第 ${x.id} 题 · 全科题库`;question.textContent=x.q;explain.classList.add('hidden');nextBtn.classList.add('hidden');options.innerHTML='';x.o.forEach((t,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<span class="letter">${'ABCD'[i]}</span><span>${t}</span>`;b.onclick=()=>answer(i,b);options.appendChild(b)})}
+function answer(i,btn){if(locked)return;locked=true;const x=questions[index],all=[...options.children];all.forEach(b=>b.disabled=true);all[x.a].classList.add('correct');if(i===x.a){score+=10;beep(true);toast('答对啦！+10 分 🎉')}else{btn.classList.add('wrong');beep(false)}explain.innerHTML=`<b>${i===x.a?'回答正确！':'正确答案：'+ 'ABCD'[x.a]}</b><br>${x.e}`;explain.classList.remove('hidden');nextBtn.textContent=index===9?'查看成绩':'下一题 →';nextBtn.classList.remove('hidden')}
 nextBtn.onclick=()=>{index++;index<10?render():finish()};
-function finish(){const playedN=Number(localStorage.g7played||0)+1;localStorage.g7played=playedN;localStorage.g7best=Math.max(score,Number(localStorage.g7best||0));const p=progress(),wasDone=(p[subject]||0)>=currentLevel,passed=score>=60;if(passed&&!wasDone&&currentLevel===(p[subject]||0)+1){p[subject]=currentLevel;localStorage.g7progress=JSON.stringify(p)}finalScore.textContent=score;scoreRing.style.setProperty('--pct',score+'%');let n=score>=90?3:score>=70?2:score>=60?1:0;stars.textContent='��'.repeat(n)+'��'.repeat(3-n);resultTitle.textContent=passed?'�� '+currentLevel+' ��ͨ�أ�':'����һ��㣡';resultSub.textContent=`${subject} �� ��� ${score/10} �⣬�� 10 ��`;bouquet.textContent=passed?'??':'??';rewardText.textContent=passed?(wasDone?'������ͨ���������Ѿ��ղ�':'��ϲ���һ������'):'���6�⼴��ͨ�ز���û���';updateStats();show(result)}
-againBtn.onclick=()=>startLevel(currentLevel);homeBtn.onclick=()=>openLevels(subject);levelBack.onclick=()=>show(home);backBtn.onclick=()=>{if(confirm('ȷ���˳������𣿵�ǰ�ɼ����ᱣ�档'))openLevels(subject)};
-soundBtn.onclick=()=>{sound=!sound;soundBtn.textContent=sound?'??':'??';toast(sound?'��Ч�ѿ���':'��Ч�ѹر�')};
+function finish(){const playedN=Number(localStorage.g7played||0)+1;localStorage.g7played=playedN;localStorage.g7best=Math.max(score,Number(localStorage.g7best||0));const p=progress(),wasDone=(p[subject]||0)>=currentLevel,passed=score>=60;if(passed&&!wasDone&&currentLevel===(p[subject]||0)+1){p[subject]=currentLevel;localStorage.g7progress=JSON.stringify(p)}finalScore.textContent=score;scoreRing.style.setProperty('--pct',score+'%');let n=score>=90?3:score>=70?2:score>=60?1:0;stars.textContent='★'.repeat(n)+'☆'.repeat(3-n);resultTitle.textContent=passed?'第 '+currentLevel+' 关通关！':'还差一点点！';resultSub.textContent=`${subject} · 答对 ${score/10} 题，共 10 题`;bouquet.textContent=passed?'💐':'🌱';rewardText.textContent=passed?(wasDone?'本关已通过，花束已经收藏':'恭喜获得一束花！'):'答对6题即可通关并获得花束';updateStats();show(result)}
+againBtn.onclick=()=>startLevel(currentLevel);homeBtn.onclick=()=>openLevels(subject);levelBack.onclick=()=>show(home);backBtn.onclick=()=>{if(confirm('确定退出本关吗？当前成绩不会保存。'))openLevels(subject)};
+soundBtn.onclick=()=>{sound=!sound;soundBtn.textContent=sound?'🔊':'🔇';toast(sound?'音效已开启':'音效已关闭')};
 function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1200)}
 </script></body></html>
-
